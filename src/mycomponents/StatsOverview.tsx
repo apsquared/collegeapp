@@ -30,25 +30,12 @@ export default function StatsOverview({ colleges }: { colleges: any[] }) {
       icon: Users,
       color: "text-green-600",
       bg: "bg-green-100"
-    },
-    {
-      title: "States Covered",
-      value: uniqueStates,
-      icon: MapPin,
-      color: "text-purple-600",
-      bg: "bg-purple-100"
-    },
-    {
-      title: "Top Division",
-      value: topDivision ? topDivision[0] : "N/A",
-      icon: Trophy,
-      color: "text-amber-600",
-      bg: "bg-amber-100"
     }
+    
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-6">
       {stats.map((stat, index) => (
         <Card key={index} className="border-0 shadow-md bg-white/80 backdrop-blur-sm">
           <CardContent className="p-4">
