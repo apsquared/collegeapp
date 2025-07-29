@@ -4,13 +4,14 @@ import { notFound } from "next/navigation";
 import SchoolDetailClient from "@/mycomponents/SchoolDetailClient";
 
 interface SchoolDetailPageProps {
-  params: {
+  params: Promise<{
     school: string;
-  };
+  }>;
 }
 
 export default async function SchoolDetailPage({ params }: SchoolDetailPageProps) {
-  const college = await getCollegeByID(params.school) as College | null;
+  const { school } = await params;
+  const college = await getCollegeByID(school) as College | null;
 
   if (!college) {
     notFound();

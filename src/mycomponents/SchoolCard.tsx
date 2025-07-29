@@ -44,14 +44,6 @@ export default function SchoolCard({ college }: { college: College }) {
     return 0;
   };
 
-  // Helper function to format inches back to feet'inches"
-  const formatInchesToHeight = (inches: number): string => {
-    if (inches === 0) return "N/A";
-    const feet = Math.floor(inches / 12);
-    const remainingInches = inches % 12;
-    return `${feet}'${remainingInches}"`;
-  };
-
   // Find shortest and tallest players
   const getHeightStats = () => {
     if (!college.players || college.players.length === 0) {
