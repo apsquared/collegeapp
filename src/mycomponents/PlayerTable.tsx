@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Search, ArrowUpDown, Check } from "lucide-react";
+import { Search, ArrowUpDown, Check, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -108,7 +108,20 @@ export default function PlayerTable({ players }: { players: any }) {
               {filteredPlayers.length > 0 ? (
                 filteredPlayers.map((player, index) => (
                   <TableRow key={index} className="hover:bg-slate-50/50">
-                    <TableCell className="font-medium">{player.name}</TableCell>
+                    <TableCell className="font-medium">
+                      <div className="flex items-center gap-2">
+                        <span>{player.name}</span>
+                        <a
+                          href={`https://www.google.com/search?q=${encodeURIComponent(player.name)} Perfect Game`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-slate-500 hover:text-slate-700 transition-colors"
+                          title={`Search for ${player.name} on Google`}
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </div>
+                    </TableCell>
                     <TableCell>{player.position || "N/A"}</TableCell>
                     <TableCell>{player.year || "N/A"}</TableCell>
                     <TableCell>{player.height || "N/A"}</TableCell>
